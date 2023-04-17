@@ -44,23 +44,12 @@ export default class App extends React.Component {
         this.props.navigation.navigate('unic', {item: dat});
         console.log(dat);
       }}>
-      <Text style={{width: '100%', textAlign: 'center', fontSize: 25}}>
-        {dat.item.id}
-      </Text>
-      <Text style={{fontSize: 15, textAlign: 'center'}}>{dat.item.title}</Text>
+      <Text style={styles.id}>{dat.item.id}</Text>
+      <Text style={styles.font}>{dat.item.title}</Text>
     </TouchableOpacity>
   );
 
-  ItemSeparator = () => (
-    <View
-      style={{
-        height: 2,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        marginLeft: 10,
-        marginRight: 10,
-      }}
-    />
-  );
+  ItemSeparator = () => <View style={styles.separator} />;
 
   handleRefresh = () => {
     this.setState({refreshing: false}, () => {
@@ -94,5 +83,22 @@ const styles = StyleSheet.create({
   image: {
     height: '100%',
     borderRadius: 4,
+  },
+  separator: {
+    height: 2,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  id: {
+    width: '100%',
+    textAlign: 'center',
+    fontSize: 25,
+    color: 'darkblue',
+    paddingTop: 10,
+  },
+  font: {
+    fontSize: 15,
+    textAlign: 'center',
   },
 });
