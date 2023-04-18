@@ -13,12 +13,12 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={Flatlist}
-          options={{title: 'Welcome'}}
+          options={{title: 'News'}}
         />
         <Stack.Screen
           name="unic"
           component={Unique}
-          options={{title: 'Welcome'}}
+          options={{title: 'View News'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

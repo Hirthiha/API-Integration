@@ -1,16 +1,15 @@
 import axios from 'axios';
 import React from 'react';
+import styles from './Style';
 import {
-  StyleSheet,
   SafeAreaView,
   FlatList,
   View,
-  Image,
   TouchableOpacity,
   Text,
 } from 'react-native';
 
-export default class App extends React.Component {
+export default class Flatlist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,10 +19,10 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchCats();
+    this.fetchDAta();
   }
 
-  fetchCats() {
+  fetchDAta() {
     this.setState({refreshing: true});
     {
       const api = axios.create({
@@ -53,7 +52,7 @@ export default class App extends React.Component {
 
   handleRefresh = () => {
     this.setState({refreshing: false}, () => {
-      this.fetchCats();
+      this.fetchDAta();
     });
   };
 
@@ -72,33 +71,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: 100,
-    margin: 10,
-    backgroundColor: '#FFF',
-    borderRadius: 6,
-  },
-  image: {
-    height: '100%',
-    borderRadius: 4,
-  },
-  separator: {
-    height: 2,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    marginLeft: 10,
-    marginRight: 10,
-  },
-  id: {
-    width: '100%',
-    textAlign: 'center',
-    fontSize: 25,
-    color: 'darkblue',
-    paddingTop: 10,
-  },
-  font: {
-    fontSize: 15,
-    textAlign: 'center',
-  },
-});
